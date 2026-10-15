@@ -5,11 +5,168 @@ format: html
 
 This is where I type my notes
 
-
-```{r}
+##
+```{r} 
 1 + 3
 ```
 
 ```{r}
+install.packages("tidyverse")
+```
+```{r}
+library(tidyverse)
+```
 
+```{r}
+tidyverse_packages()
+```
+
+```{r}
+read_csv(file = "data/penguin_dataset.csv")
+```
+
+```{r}
+penguins <- read_csv(file = "data/penguin_dataset.csv")
+```
+
+```{r}
+penguins |> head()
+```
+
+```{r}
+penguins |> tail()
+```
+
+```{r}
+penguins |> View()
+```
+
+```{r}
+penguins |> summary()
+```
+
+```{r}
+penguins |> colnames()
+```
+
+```{r}
+penguins |> dim()
+```
+
+```{r}
+penguins |>  # start with the penguin data AND THEN
+    na.omit() |> # remove the NAs AND THEN
+arrange(bill_len) |> # Arrange (sort) the rows AND THEN 
+head() # keep just the head (top 6 rows)
+```
+
+```{r}
+library(heatmap)
+penguins2 <- read_csv(file = "penguins_dataset.csv")
+penguins |> mean(flipper_len)
+my_variable <- 00983
+my_variable 
+```
+
+```{r}
+library(heatmap)
+```
+
+```{r}
+penguins2 <- read_csv(file = "penguins_dataset.csv")
+```
+
+```{r}
+glimpse()
+```
+
+```{r}
+glimpse("penguins_dataset")
+```
+
+```{r}
+glimpse(penguins_dataset)
+```
+
+```{r}
+glimpse(penguins)
+```
+
+```{r}
+cout(species)
+```
+
+```{r}
+count(sex)
+```
+
+
+```{r}
+penguins |> count(island)
+```
+
+```{r}
+ggplot(data = penguins,
+mapping = aes(x = bill_len,
+y = bill_dep)) +
+    geom_point()
+```
+
+```{r}
+ggplot(data = penguins,
+mapping = aes(x = bill_len,
+y = bill_dep,
+colour = species)) +
+```
+
+
+```{r}
+penguins |> head()
+```
+
+```{r}
+penguins |> arrange(desc(body_mass)) |> head()
+penguins |> arrange(desc(flipper_len)) |> head()
+penguins |> arrange(desc(species)) |> head()
+penguins |> relocate(body_mass, .after = species) |> head()
+```
+
+```{r}
+penguins |> arrange(desc(body_mass)) |> head()
+```
+
+```{r}
+penguins |> arrange(desc(body_mass)) |> head()
+```
+
+```{r}
+penguins |> head()
+```
+
+```{r}
+penguins |> arrange(desc(body_mass))
+```
+
+```{r}
+penguins |> arrange(desc(body_mass)) |> head()
+```
+
+```{r}
+penguins |> arrange(desc(year), desc(body_mass)) |> head()
+```
+
+```{r}
+install.packages("tidyverse")
+```
+
+```{r}
+install.packages("tidiverse")
+```
+
+```{r}
+install.packages(c("pkg1", "pkg2"))
+```
+
+```{r}
+install.packages("tidyverse")
 ```
