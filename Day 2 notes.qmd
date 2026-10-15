@@ -121,3 +121,27 @@ penguins |> mutate(flipper_to_mass_ratio = flipper_len / body_mass)
 penguins |> mutate(body_mass_kg = body_mass/1000) |> mutate(heavy = body_mass_kg > 4.5)
 ```
 
+
+```{r}
+penguins |> mutate(flipper_class =case_when(flipper_len < 190 ~ "short", flipper_len <= 210 ~ "medium", TRUE ~ "long")) |> distinct(species, flipper_class)
+```
+
+```{r}
+ggplot(data = penguins, mapping = aes(x = bill_len, y = bill_dep)) + geom_point()
+```
+
+```{r}
+penguins |> mutate(size = case_when(flipper_len > 210 & body_mass > 4500 ~ "big", flipper_len < 190 & body_mass < 3500 ~ "small", TRUE ~ "medium")) |> ggplot(mapping = aes(x = flipper_len, y = body_mass, colour = size)) + geom_point()
+```
+
+```{r}
+penguins |> rename(f_len = flipper_len|> head())
+```
+
+```{r}
+penguins |> group_by(species, island) |> summarize(mean_body_mass = mean(body_mass, na.rm = TRUE))
+```
+
+```{r}
+penguins |> group_by(species, island) |> filter(body_mass == max(body_mass, na.rm = TRUE))
+```
