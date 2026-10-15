@@ -7,3 +7,117 @@ format: html
 ```{r}
 library(tidyverse)
 ```
+
+```{r}
+penguins |> head()
+```
+
+```{r}
+penguins |> count(species == "Adelie")
+```
+
+
+```{r}
+penguins |> filter(species == "Adelie" & body_mass > 5000) |> count()
+```
+
+```{r}
+penguins |> filter(species == "Adelie" | island == "Torgersen") |> count()
+```
+
+```{r}
+penguins |> filter(species == "Adelie") | body_mass > 5000 |> count()
+```
+
+```{r}
+penguins |> filter(species == "Adelie") & body_mass > 5000 |> count()
+```
+
+```{r}
+penguins |> filter(species == "Gentoo") & body_mass > 5000 |> count()
+```
+
+```{r}
+penguins |> filter(body_mass > 5000) |> distinct(species)
+```
+
+```{r}
+penguins |> filter(species == "Gentoo" & body_mass > 5000) |> count()
+```
+
+
+
+```{r}
+penguins |> filter(sex) |> count()
+```
+
+```{r}
+penguins |> select(edns_with("s")) |> head()
+```
+
+```{r}
+penguins |> select(ends_with("s")) |> head()
+```
+
+```{r}
+penguins |> select(starts_with("bill"))
+penguins |> filter(species == "Gentoo" |island == "Biscoe")  
+```
+
+```{r}
+penguins |> select(starts_with("body_mass")) |> 
+filter(species == "Adelie" | island == "Torgersen")
+```
+
+```{r}
+penguins |> select(starts_with("sex"))
+```
+
+```{r}
+penguins |> filter(species == "Adelie" | island == "Torgersen")
+```
+
+```{r}
+penguins |> select(contains("body_mass")) 
+```
+
+```{r}
+penguins |> slect(starts_with("b") | starts_with("f")) |> head()
+```
+
+```{r}
+penguins |> filter(body_mass > 4000) |> distinct(species, island) 
+```
+
+```{r}
+penguins |> filter(body_mass > 4000)
+```
+
+```{r}
+penguins |> distinct(species, island)
+```
+
+```{r}
+penguins |> distinct(species,sex)
+```
+
+```{r}
+penguins |> filter(body_mass > 4000) |> distinct(species, sex)
+```
+
+```{r}
+penguins |> mutate(body_mass_kg = body_mass)
+```
+
+```{r}
+penguins |> mutate(body_mass_kg = body_mass/1000)
+```
+
+```{r}
+penguins |> mutate(flipper_to_mass_ratio = flipper_len / body_mass)
+```
+
+```{r}
+penguins |> mutate(body_mass_kg = body_mass/1000) |> mutate(heavy = body_mass_kg > 4.5)
+```
+
